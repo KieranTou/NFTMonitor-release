@@ -10,7 +10,7 @@
 将NFT合约地址作为参数 通过`axios`向etherscan调用API请求 获取合约信息 将简单信息存入数据库合约表 将合约源代码写入本地文件
 > 本想体验下文件服务器 没用上 不过倒是用了公司NAS 感觉还挺方便
 - database.js `数据库文件`
-配置了`mysql`和`redis`连接 定义了信息插入交易表、合约表的方法 这里已提前将signature database的黑名单导入到redis中 具体可见(实习期间小工具之爬取信息至redis)[https://github.com/KieranTou/NFTMonitor/tree/main/4RedisAdd] 作用是在进行获取合约信息前 判断该交易是否调用NFT常用方法 排除一些非NFT交易 这里的redis使用`list`数据类型 因为爬取过程中发现有数据冗余 多个`text signature`可能对应同一个`byte signature`
+配置了`mysql`和`redis`连接 定义了信息插入交易表、合约表的方法 这里已提前将signature database的黑名单导入到redis中 具体可见[实习期间小工具之爬取信息至redis](https://github.com/KieranTou/NFTMonitor/tree/main/4RedisAdd) 作用是在进行获取合约信息前 判断该交易是否调用NFT常用方法 排除一些非NFT交易 这里的redis使用`list`数据类型 因为爬取过程中发现有数据冗余 多个`text signature`可能对应同一个`byte signature`
 - process.js `子进程处理文件`
 每个子进程处理被分配部分的交易哈希列表 获取其`receipt.logs` 通过事件判断该交易是否为Mint NFT的交易 判断为真则继续进行处理并保存
 ### 闲谈
