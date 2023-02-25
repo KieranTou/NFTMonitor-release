@@ -1,0 +1,20 @@
+{
+  "name": "4multiprocessing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "master.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "api": "^5.0.7",
+    "dotenv": "^16.0.3",
+    "ethers": "^5.7.2",
+    "express": "^4.18.2",
+    "ioredis": "^5.2.5",
+    "mysql": "^2.18.1",
+    "redis": "^4.5.1"
+  }
+}
